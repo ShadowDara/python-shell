@@ -24,5 +24,5 @@ def main():
             print(f"{spam}: command not found")
 
 if __name__ == "__main__":
-    print("Custom Shell Terminal in Python by Shadowdara\n")
+    #print("Custom Shell Terminal in Python by Shadowdara\n")
     main()
