@@ -8,6 +8,8 @@ def main():
     # Wait for user input
     input()
 
+    sys.stdout.write("invalid_mango_command: command not found")
+
 
 if __name__ == "__main__":
     main()
