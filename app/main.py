@@ -20,17 +20,10 @@ def main():
             else:
                 print(f"{spam[5:]}: not found")
         elif spam[0:4] == "echo":
-            do_echo = True
-            while do_echo == True:
-                start = spam.find("'", 5)
-                end = spam.find("'", start + 1)
-                if start != -1 and end != -1:
-                    print(spam[start + 1:end])
-                    spam = spam[end + 1:]
-                else:
-                    print(" ".join(spam[5:].split()))
-
-            
+            if spam[5] and spam[-1] == "'":
+                print(" ".join(spam[6:-1].split()))
+            else:
+                print(" ".join(spam[:].split()))
         elif spam[0:3] == 'cat':
             pass
         else:
