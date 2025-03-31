@@ -36,9 +36,6 @@ def main():
             output = " ".join(parsed_args)
             print(output)
 
-        elif spam[0:3] == 'cat':
-            pass
-
         else:
             args = shlex.split(spam)
             executablePath = findExecutable(args[0])
