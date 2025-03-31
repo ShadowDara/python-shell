@@ -44,6 +44,7 @@ def main():
             executablePath = findExecutable(args[0])
             if executablePath:
                 result = subprocess.run(args, capture_output=True, text=True)
+                print(result.stdout, end="")
             else:
                 print(f"{spam}: command not found")
 
