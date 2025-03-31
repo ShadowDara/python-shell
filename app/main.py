@@ -5,7 +5,6 @@ shell_types = ["echo", "exit", "type"]
 
 import sys
 import shutil
-import os
 import subprocess
 
 def main():
@@ -21,10 +20,14 @@ def main():
             else:
                 print(f"{spam[5:]}: not found")
         elif spam[0:4] == "echo":
-            print(spam[5:])
+            if spam[5] and spam[-1] == "'":
+                print(spam[6:-2])
+            else:
+                print(spam[5:])
+        elif spam[0:3] == 'cat':
+            pass
         else:
             try:
-                #path_list = os.environ.get("PATH", "").split(os.pathsep)
                 subprocess.run([spam.split(" ")[0], spam.split(" ", 1)[1]], check=True)
             except:
                 print(f"{spam}: command not found")
