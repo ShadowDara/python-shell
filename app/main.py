@@ -3,10 +3,19 @@
 # built in vars for Shell
 shell_types = ["echo", "exit", "type"]
 
+import os
 import sys
 import shutil
 import subprocess
 import shlex
+
+def findExecutable(command):
+    paths = os.getenv("PATH", "").split(os.pathsep)
+    for path in paths:
+        executablePath = os.path.join(path, command)
+        if os.path.isfile(executablePath):
+            return executablePath
+    return None
 
 def main():
     while True:
@@ -23,23 +32,19 @@ def main():
                 print(f"{spam[5:]}: not found")
 
         elif spam[0:4] == "echo":
-
-
-# Parse like a shell would
             parsed_args = shlex.split(spam[5:].strip())
-
-# Join parsed arguments with spaces
             output = " ".join(parsed_args)
-
             print(output)
 
         elif spam[0:3] == 'cat':
             pass
 
         else:
-            try:
-                subprocess.run([spam.split(" ")[0], spam.split(" ", 1)[1]], check=True)
-            except:
+            args = shlex.split(spam)
+            executablePath = findExecutable(args[0])
+            if executablePath:
+                result = subprocess.run(args, capture_output=True, text=True)
+            else:
                 print(f"{spam}: command not found")
 
 if __name__ == "__main__":
