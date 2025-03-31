@@ -1,6 +1,6 @@
 # script written by Shadowdara
 
-shell_types = ["echo", "exit"]
+shell_types = ["echo", "exit", "type"]
 
 import sys
 
