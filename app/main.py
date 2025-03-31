@@ -21,7 +21,7 @@ def main():
                 print(f"{spam[5:]}: not found")
         elif spam[0:4] == "echo":
             if spam[5] and spam[-1] == "'":
-                print(spam[6:-2])
+                print('"' + spam[6:-2] + '"')
             else:
                 print(spam[5:])
         elif spam[0:3] == 'cat':
