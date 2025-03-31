@@ -1,15 +1,9 @@
 import sys
 
-
 def main():
-    # Uncomment this block to pass the first stage
-    sys.stdout.write("$ ")
-
-    # Wait for user input
-    spam = input()
-
-    sys.stdout.write(f"{spam}: command not found")
-
+    while True:
+        spam = input("$ ")
+        print(f"{spam}: command not found")
 
 if __name__ == "__main__":
     main()
