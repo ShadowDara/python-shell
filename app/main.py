@@ -26,7 +26,7 @@ def main():
 
 
 # Parse like a shell would
-            parsed_args = shlex.split(spam.strip())
+            parsed_args = shlex.split(spam[5:].strip())
 
 # Join parsed arguments with spaces
             output = " ".join(parsed_args)
