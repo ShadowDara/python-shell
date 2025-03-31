@@ -31,7 +31,7 @@ def main():
 # Join parsed arguments with spaces
             output = " ".join(parsed_args)
 
-print(output)
+            print(output)
 
         elif spam[0:3] == 'cat':
             pass
