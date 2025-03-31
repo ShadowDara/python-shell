@@ -22,7 +22,7 @@ def main():
                 print(f"{spam[5:]}: not found")
         elif spam[0:4] == "echo":
             if spam[5] and spam[-1] == "'":
-                print(" ".join(spam[6:-1].split()))
+                print(spam[6:-1])
             else:
                 parts = shlex.split(spam[5:])
                 print(" ".join(parts))
