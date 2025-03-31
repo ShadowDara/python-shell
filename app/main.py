@@ -7,6 +7,8 @@ def main():
         spam = input("$ ")
         if spam == 'exit 0':
             sys.exit(0)
+        elif spam.startswith("echo "):
+            print(spam[5:])
         else:
             print(f"{spam}: command not found")
 
