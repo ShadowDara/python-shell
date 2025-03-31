@@ -1,10 +1,12 @@
+# script written by Shadowdara
+
 import sys
 
 def main():
     while True:
         spam = input("$ ")
         if spam == 'exit 0':
-            sys.exit
+            sys.exit(0)
         else:
             print(f"{spam}: command not found")
 
