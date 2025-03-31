@@ -23,7 +23,7 @@ def main():
             if spam[5] and spam[-1] == "'":
                 print(" ".join(spam[6:-1].split()))
             else:
-                print(" ".join(spam[:].split()))
+                print(" ".join(spam[5:].split()))
         elif spam[0:3] == 'cat':
             pass
         else:
