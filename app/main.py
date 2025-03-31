@@ -6,6 +6,7 @@ shell_types = ["echo", "exit", "type"]
 import sys
 import shutil
 import subprocess
+import shlex
 
 def main():
     while True:
@@ -23,7 +24,8 @@ def main():
             if spam[5] and spam[-1] == "'":
                 print(" ".join(spam[6:-1].split()))
             else:
-                print(" ".join(spam[5:].split()))
+                parts = shlex.split(spam[5:])
+                print(" ".join(parts))
         elif spam[0:3] == 'cat':
             pass
         else:
