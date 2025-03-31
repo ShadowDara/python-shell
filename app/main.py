@@ -25,7 +25,7 @@ def main():
         else:
             try:
                 #path_list = os.environ.get("PATH", "").split(os.pathsep)
-                subprocess.run([shutil.which(spam.split(" ")[0]), spam.split(" ", 1)[1]], check=True)
+                subprocess.run([spam.split(" ")[0], spam.split(" ", 1)[1]], check=True)
             except:
                 print(f"{spam}: command not found")
 
