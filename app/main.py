@@ -5,6 +5,8 @@ shell_types = ["echo", "exit", "type"]
 
 import sys
 import shutil
+import os
+import subprocess
 
 def main():
     while True:
@@ -21,7 +23,11 @@ def main():
         elif spam[0:4] == "echo":
             print(spam[5:])
         else:
-            print(f"{spam}: command not found")
+            try:
+                #path_list = os.environ.get("PATH", "").split(os.pathsep)
+                subprocess.run([shutil.which(spam.split(" ")[0]), spam.split(" ", 1)[1]], check=True)
+            except:
+                print(f"{spam}: command not found")
 
 if __name__ == "__main__":
     #print("Custom Shell Terminal in Python by Shadowdara\n")

@@ -4,6 +4,7 @@
 setlocal EnableDelayedExpansion
 
 :: Run Python script with pipenv
-pipenv run python -u -m app.main %*
+rem pipenv run python -u -m app.main %*
+python app/main.py
 
 endlocal
