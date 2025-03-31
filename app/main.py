@@ -6,9 +6,9 @@ def main():
     sys.stdout.write("$ ")
 
     # Wait for user input
-    input()
+    spam = input()
 
-    sys.stdout.write("invalid_mango_command: command not found")
+    sys.stdout.write(f"{spam}: command not found")
 
 
 if __name__ == "__main__":
