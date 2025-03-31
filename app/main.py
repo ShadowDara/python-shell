@@ -13,6 +13,7 @@ def main():
         spam = input("$ ")
         if spam == 'exit 0':
             sys.exit(0)
+
         elif spam[0:4] == 'type':
             if spam[5:] in shell_types:
                 print(f"{spam[5:]} is a shell builtin")
@@ -20,14 +21,21 @@ def main():
                     print(f"{spam[5:]} is {path}")
             else:
                 print(f"{spam[5:]}: not found")
+
         elif spam[0:4] == "echo":
-            if spam[5] and spam[-1] == "'":
-                print(spam[6:-1])
-            else:
-                parts = shlex.split(spam[5:])
-                print(" ".join(parts))
+
+
+# Parse like a shell would
+            parsed_args = shlex.split(spam.strip())
+
+# Join parsed arguments with spaces
+            output = " ".join(parsed_args)
+
+print(output)
+
         elif spam[0:3] == 'cat':
             pass
+
         else:
             try:
                 subprocess.run([spam.split(" ")[0], spam.split(" ", 1)[1]], check=True)
